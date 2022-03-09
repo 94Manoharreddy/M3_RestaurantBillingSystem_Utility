@@ -12,12 +12,13 @@ class Operations {
 		while (ownerLoggedIn) {
 			System.out.println("\n------------------> OPERATIONS <------------------\n");
 			System.out.println("Available Options :");
-			System.out.println(" 1. Display Menu ");
-			System.out.println(" 2. Add Food Item ");
-			System.out.println(" 3. Remove Food Item ");
-			System.out.println(" 4. Update Food Item ");
-			System.out.println(" 5. Exit ");
+			System.out.println("1. Display Menu ");
+			System.out.println("2. Add Food Item ");
+			System.out.println("3. Remove Food Item ");
+			System.out.println("4. Update Food Item ");
+			System.out.println("5. Exit ");
 			// System.out.print("Select what you want : ");
+			System.out.print("\nSelect your choice : ");
 			byte choice = sc.nextByte();
 			String foodItem = "";
 			float price = 0F;
@@ -26,8 +27,9 @@ class Operations {
 			case 1:
 				owner.displayMenu();
 				break;
+
 			case 2:
-				System.out.print("Enter number of food items to add in menu : ");
+				System.out.print("\nEnter number of food items to add in menu : ");
 				int noOfItems = sc.nextInt();
 				for (int i = 0; i < noOfItems; i++) {
 					System.out.print("Enter food item " + (i + 1)+": ");
@@ -35,34 +37,39 @@ class Operations {
 					System.out.print("Enter its price : ");
 					price = sc.nextFloat();
 					if (owner.addItem(foodItem, price))
-						System.out.println("\n"+foodItem + " added in menu\n");
+						System.out.println("\n"+foodItem + " added in Menu\n");
 					else
-						System.out.println(foodItem + " already in menu.");
+						System.out.println(foodItem + " already in Menu ");
 					owner.addItem(foodItem, price);
 				}
 
 				break;
+
 			case 3:
-				System.out.print("Enter food item to remove :");
+				System.out.print("\nEnter food item to remove :");
 				foodItem = sc.next();
 				if (owner.deleteItem(foodItem))
-					System.out.println(foodItem + " removed from menu.");
+					System.out.println(foodItem + " removed from Menu");
 				else
-					System.out.println(foodItem + " does not exist in menu.");
+					System.out.println(foodItem + " does not exist in Menu ");
 				break;
+
 			case 4:
-				System.out.print("Enter Food item to update its price : ");
+				System.out.print("\nEnter Food item to update its price : ");
 				foodItem = sc.next();
-				System.out.print("\nEnter its price : ");
+				System.out.print("Enter the updated price of the FoodItem : ");
 				price = sc.nextFloat();
+			
+
 				if (owner.update(foodItem, price))
-					System.out.println("Menu updated\n");
+					System.out.println("\nMenu updated");
 				else
 					System.out.println("Failed to update menu ");
 				break;
 			
 			case 5:
 				return;
+
 			default:
 				System.out.println("Exiting from Owner Module.");
 				System.out.println("--------------------------------------------------------------------");
@@ -83,7 +90,7 @@ class Operations {
 			System.out.println("4. Update Food Item Quantity ");
 			System.out.println("5. Display Order ");
 			System.out.println("6. Pay Bill ");
-			System.out.println("7. Exit ");
+			System.out.println("7. Exit \n");
 			String foodItem = "";
 			int quantity = 0;
 			System.out.print("Select what you want : ");
@@ -123,10 +130,14 @@ class Operations {
 			case 4:
 				System.out.print("Enter food to update quantity : ");
 				foodItem = sc.next();
-				if (customer.update(foodItem, quantity))
+				System.out.print("Enter updated quantity : ");
+				quantity = sc.nextInt();
+				if (customer.update(foodItem, quantity)){
 					System.out.println(quantity + " " + foodItem + " added in order.");
-				else
+				}
+				else{
 					System.out.println("Failed to update quantity for " + foodItem);
+				}
 				break;
 
 			// case 5 is to see your orders
@@ -137,12 +148,15 @@ class Operations {
 
 			// case 6 is to display bill for the ordered food items
 			case 6:
-				System.out.println("Your total amount for following order ");
-				System.out.println("-------------------------------------------------------");
-				System.out.println("FOOD \t\t QUANTITY");
-				System.out.println("-------------------------------------------------------");
+				System.out.println("\nTotal amount for your below order is : ");
+				// System.out.println("-------------------------------------------------------");
+				// System.out.println("FOOD \t\t QUANTITY");
+				// System.out.println("-------------------------------------------------------");
 				customer.displayOrder();
-				System.out.println("Total Amount(including GST) = " + customer.totalBill());
+				// System.out.println("Total Amount(including GST) = " + customer.totalBill());
+				// System.out.println("amount is : "+customer.totalBill().amount);
+				// System.out.println("Tax is : "+customer.totalBill().tax);
+				System.out.println("\nTotal Amount is : "+customer.totalBill());
 				System.out.println("-------------------------------------------------------\n");
 				break;
 
@@ -162,7 +176,7 @@ class Operations {
 
 public class RestaurantApplication {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		RestaurantOwner owner = new RestaurantOwner();
 		Customer customer = new Customer();
 		Scanner sc = new Scanner(System.in);
@@ -176,18 +190,20 @@ public class RestaurantApplication {
 			byte loginAs = sc.nextByte();
 
 			switch (loginAs) {
-				
+
 			case 1:
 				System.out.println("----------------------- AUTHENTICATION -----------------------");
 				System.out.print("Enter username : ");
 				String username = sc.next();
+
 				System.out.print("Enter password : ");
 				String password = sc.next();
+
 				if (owner.authorize(username, password)) {
 				// if (uname == "srikanth" && password == "srikanth") {
 					Operations.OwnerOperations(owner);
 				} else {
-					System.out.println("Invalid credentials.");
+					System.out.println("Invalid credentials , Please enter correctly ");
 				}
 				break;
 
@@ -206,6 +222,7 @@ public class RestaurantApplication {
 			}
 
 		}
+
 		sc.close();
 	}
 }

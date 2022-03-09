@@ -24,18 +24,22 @@ public class Customer extends RestaurantOwner implements GST {
 		 */
 
 		if (order.isEmpty()) {
-			System.out.println("No items in order.");
+			System.out.println("No items in order - Order is Empty !");
 			return;
 		}
+		else{
 
-		Set<String> foodNames = new HashSet<String>();
-		foodNames = order.keySet();
-		System.out.println("-------------------------------------");
-		System.out.println("FOOD \t QUANTITY \t PRICE \t TOTAL");
-		System.out.println("-------------------------------------");
-		for (String food : foodNames) {
-			System.out.println(food + "\t" + order.get(food) + "\t" + menu.get(food) + "\t"
-					+ menu.get(food) * order.get(food));
+			Set<String> foodNames = new HashSet<String>();
+			foodNames = order.keySet();
+			System.out.println("-------------------------------------");
+			System.out.println("FOOD \t QUANTITY \t PRICE \t TOTAL");
+			System.out.println("-------------------------------------");
+
+			for (String food : foodNames) {
+				System.out.println(food + "\t" + order.get(food) + "\t" + menu.get(food) + "\t"
+						+ menu.get(food) * order.get(food));
+			}
+			
 		}
 		System.out.println("-------------------------------------\n");
 	}
@@ -45,9 +49,12 @@ public class Customer extends RestaurantOwner implements GST {
 		 * Check if the menu contains the food item ordered by the customer. If it does
 		 * not exist in menu return false, else add the food item in customer's order.
 		 */
-		if (!super.menu.containsKey(food))
+		if (!super.menu.containsKey(food)){
 			return false;
-		order.put(food, quantity);
+		}
+		else{
+			order.put(food, quantity);
+		}
 		return true;
 
 	}
@@ -58,10 +65,12 @@ public class Customer extends RestaurantOwner implements GST {
 		 * not exist in order return false, else remove the food item from customer's
 		 * order.
 		 */
-		if (!order.containsKey(food))
+		if (!order.containsKey(food)){
 			return false;
-		else
+		}
+		else{
 			order.remove(food);
+		}
 		return true;
 	}
 
@@ -74,9 +83,12 @@ public class Customer extends RestaurantOwner implements GST {
 		try {
 			removeFood(food);
 			order.put(food, quantity);
-		} catch (Exception e) {
+		}
+
+		catch (Exception e) {
 			return false;
 		}
+
 		return true;
 	}
 
@@ -87,10 +99,15 @@ public class Customer extends RestaurantOwner implements GST {
 		double amount = 0;
 		Set<String> foodNames = new HashSet<String>();
 		foodNames = order.keySet();
+
 		for (String food : foodNames) {
 			amount += (super.menu.get(food) * order.get(food));
 		}
+
 		double tax = gst.GSTTaxPercent * amount / 100;
+
+		System.out.println("Food Amount is  : "+amount);
+		System.out.println("GST for Food is : "+tax);
 		return amount + tax;
 	}
 }

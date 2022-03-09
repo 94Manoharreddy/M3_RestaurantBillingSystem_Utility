@@ -48,7 +48,9 @@ public class RestaurantOwner {
 		try {
 			deleteItem(food);
 			addItem(food, price);
-		} catch (Exception e) {
+		}
+		
+		catch (Exception e) {
 			return false;
 		}
 		return true;
