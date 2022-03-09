@@ -1,0 +1,6 @@
+# Requirements
+
+## Description
+* This Project is titled as _RestaurantBillingSystem_ and developed in using java language. 
+* RestaurantBillingSystem is an utility which is used in Restaurants, Hotels etc..,
+From this system owner can add the food item s and drinks whatever they have in the restaurant. and also they can update the prices of food items at anypoint of time by selecting update food items and also owner has a login page, only owner can login with his credientials and other login page is for customers, where they don't have to enter any credientials just by clicking on the customers case they directly go into customers page. Where they can see different options to display the menu , food order , food update which is used to update the previously ordered food , myorder -  where they can see what are the food items they oredr along with the price of each order, bill - where it shows the bill along with the gst and also shows biil individually for each item they order. At the end of the options both owner and customer can see the exit case which is for when ever they want to exit from the page they can simply select that case where iot can simply taken into the loginpage again by exiting the previous page.
