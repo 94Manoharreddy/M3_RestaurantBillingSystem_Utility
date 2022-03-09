@@ -12,9 +12,12 @@ class Operations {
 		while (ownerLoggedIn) {
 			System.out.println("\n------------------> OPERATIONS <------------------\n");
 			System.out.println("Available Options :");
-			System.out.println("1. Display Menu\n"+"2. Add Food Item.\n" + "3. Remove Food Item \n" + "4. Update Food Item \n"
-					+ "5. Exit\n");
-			System.out.print("Select what you want : ");
+			System.out.println(" 1. Display Menu ");
+			System.out.println(" 2. Add Food Item ");
+			System.out.println(" 3. Remove Food Item ");
+			System.out.println(" 4. Update Food Item ");
+			System.out.println(" 5. Exit ");
+			// System.out.print("Select what you want : ");
 			byte choice = sc.nextByte();
 			String foodItem = "";
 			float price = 0F;
@@ -48,14 +51,14 @@ class Operations {
 					System.out.println(foodItem + " does not exist in menu.");
 				break;
 			case 4:
-				System.out.println("Enter food item to update its price.");
+				System.out.print("Enter Food item to update its price : ");
 				foodItem = sc.next();
-				System.out.println("\nEnter its price.");
+				System.out.print("\nEnter its price : ");
 				price = sc.nextFloat();
 				if (owner.update(foodItem, price))
 					System.out.println("Menu updated\n");
 				else
-					System.out.println("Failed to update menu.");
+					System.out.println("Failed to update menu ");
 				break;
 			
 			case 5:
@@ -170,9 +173,10 @@ public class RestaurantApplication {
 			System.out.println("1. Owner\n2. Customer\n3. Exit");
 			System.out.print("Select Login Method : ");
 			
-
 			byte loginAs = sc.nextByte();
+
 			switch (loginAs) {
+				
 			case 1:
 				System.out.println("----------------------- AUTHENTICATION -----------------------");
 				System.out.print("Enter username : ");
@@ -186,6 +190,7 @@ public class RestaurantApplication {
 					System.out.println("Invalid credentials.");
 				}
 				break;
+
 			case 2:
 				Operations.CustomerOpeartions(customer);
 				break;
@@ -194,6 +199,7 @@ public class RestaurantApplication {
 				System.out.println("\n____________________>-- THANK YOU VISIT AGAIN --<____________________");
 				wantToContinue = false;
 				break;
+
 			default:
 				System.out.println("\nInvalid Choice!! " + " Exiting from the page ");
 				wantToContinue = false;
