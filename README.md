@@ -4,6 +4,10 @@
 
 # SDLC Activity Based Learning 
 
+|Code Quality|
+|---|
+| ![CodeQuality](https://api.codiga.io/project/31816/status/svg) |
+
 ## Folder Structure
 | Folder | Description |
 |--------|-------------|
