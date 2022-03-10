@@ -32,10 +32,10 @@ From this system owner can add the food item s and drinks whatever they have in 
 # SWOT Aalysis
 |         |                 |
 |----------|----------------------|
-| Strength | Easy to use and Easy to Choose the available options and you can update and change your fooditems and also update the price of fooditems any time byb the owner|
-| Weakness | Need GUI to look more attactive  |
-| Opportunity | Quickly understand makes more demand in future , and also GUI also implemented in future, Easily used by anyone so common man can also be used easily , so oppurtinities will increase |
-| Threat | GUI applications are available so compitition is high and hard , Lots of applicatins are developed|
+| `Strength` | Easy to use and Easy to Choose the available options and you can update and change your fooditems and also update the price of fooditems any time byb the owner|
+| `Weakness` | Need GUI to look more attactive  |
+| `Opportunity` | Quickly understand makes more demand in future , and also GUI also implemented in future, Easily used by anyone so common man can also be used easily , so oppurtinities will increase |
+| `Threat` | GUI applications are available so compitition is high and hard , Lots of applicatins are developed|
 
 # 4W's & 1H
 <!-- Who, What, When, Where and How -->
