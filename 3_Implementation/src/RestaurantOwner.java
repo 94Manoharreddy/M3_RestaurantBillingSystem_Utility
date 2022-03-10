@@ -14,7 +14,7 @@ public class RestaurantOwner {
 	}
 
 	boolean authorize(String username, String password) {
-		return username.equals("restaurant") && password.equals("rest123");
+		return username.equals("userowner") && password.equals("userowner");
 	}
 
 	boolean addItem(String food, float price) {
